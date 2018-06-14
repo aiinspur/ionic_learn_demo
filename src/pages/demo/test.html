@@ -1,0 +1,30 @@
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="500" >
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<div id="qwer" style="height: 100%;width: 100%"></div>
+<script>
+    //准备img对象 
+    var img = new Image();   
+    img.src = "bear.jpg";
+ 
+    // 加载完成开始绘制
+    img.onload=function(){
+       //准备canvas环境
+       //var canvas=document.getElementById("myCanvas");
+       var div = document.getElementById('qwer');
+       var canvas = document.createElement('canvas');
+       canvas.height=1000;
+       canvas.width=1000;
+       var ctx=canvas.getContext("2d");
+       // 绘制图片
+       ctx.drawImage(img,0,0);
+       // 绘制水印
+       ctx.font="100px microsoft yahei";
+       //ctx.fillStyle = "rgba(255,255,255,0.5)";
+       ctx.fillText("my images",60,60);
+       div.appendChild(canvas);
+    }
+</script>
+</body>
